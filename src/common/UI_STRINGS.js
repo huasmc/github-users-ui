@@ -8,6 +8,13 @@ export const UI_STRINGS = {
 		NAME: "Name",
 		SIZE: "Size",
 		WATCHERS: "Watchers",
+		REPOSITORIES: "Repositories",
+	},
+	REPOSITORY_DETAILS: {
+		NAME: "Name",
+		DESCRIPTION: "Description",
+		LANGUAGE: "Language",
+		ON_GITHUB: "See on Github",
 	},
 	USER_DETAILS: {
 		FOLLOWING: "Following",

@@ -5,6 +5,6 @@ export const get = async (url, queryParams) => {
 			return data;
 		})
 		.catch((error) => {
-			console.log(error);
+			throw new Error(error);
 		});
 };

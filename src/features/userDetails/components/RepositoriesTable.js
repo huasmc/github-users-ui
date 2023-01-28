@@ -1,12 +1,23 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { Table } from "react-bootstrap";
 import { UI_STRINGS } from "../../../common/UI_STRINGS";
+import RepositoryDetails from "./RepositoryDetails";
 
 const RepositoriesTable = ({ repositories }) => {
+	const [selectedRepository, setSelectedRepository] = useState(null);
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const selectRepository = (repository) => {
+		setSelectedRepository(repository);
+		setModalOpen(true);
+	};
+
+	const hideModal = () => setModalOpen(false);
+
 	return (
 		<div className="table-container">
 			<h4>
-				<b>Repositories</b>
+				<b>{UI_STRINGS.REPOSITORIES.REPOSITORIES}</b>
 			</h4>
 			<Table striped bordered hover responsive size="sm">
 				<thead>
@@ -20,7 +31,10 @@ const RepositoriesTable = ({ repositories }) => {
 					{Array.isArray(repositories) &&
 						repositories.map((repository) => {
 							return (
-								<tr key={repository.name}>
+								<tr
+									key={repository.name}
+									onClick={() => selectRepository(repository)}
+								>
 									<td>
 										<span>{repository.name}</span>
 									</td>
@@ -35,6 +49,13 @@ const RepositoriesTable = ({ repositories }) => {
 						})}
 				</tbody>
 			</Table>
+			{selectedRepository && (
+				<RepositoryDetails
+					show={modalOpen}
+					onHide={hideModal}
+					repository={selectedRepository}
+				/>
+			)}
 		</div>
 	);
 };
