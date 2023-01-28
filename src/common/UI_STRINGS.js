@@ -1,5 +1,6 @@
 export const UI_STRINGS = {
 	LOGIN: "Login",
+	LOGOUT: "Log-out",
 	USERS_TABLE: {
 		AVATAR: "Avatar",
 		USERNAME: "Username",

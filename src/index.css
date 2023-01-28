@@ -62,3 +62,8 @@ code {
 b {
 	color: #0d6efd;
 }
+
+.tooltip-icon {
+	width: 15px;
+	padding-right: 5px;
+}

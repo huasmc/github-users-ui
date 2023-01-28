@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import RepositoriesTable from "./components/RepositoriesTable";
 import { Row } from "react-bootstrap";
 import UserMetadata from "./components/UserMetadata";
+import withAuth from "../../auth/WithAuth";
 
 const UserDetails = () => {
 	const selectedUser = useSelector(selectSelectedUser);
@@ -17,23 +18,21 @@ const UserDetails = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		dispatch(fetchRepositories(selectedUser.repos_url));
+		if (selectedUser) dispatch(fetchRepositories(selectedUser.repos_url));
 	}, [dispatch]);
 
 	useEffect(() => {
-		if (!selectedUser.login) navigate("/dashboard");
+		if (!selectedUser || !selectedUser.login) navigate("/dashboard");
 	}, [navigate, selectedUser]);
 
 	return (
 		<div className="routes-container">
+			<Row>{selectedUser && <UserMetadata selectedUser={selectedUser} />}</Row>
 			<Row>
-				<UserMetadata selectedUser={selectedUser} />
-			</Row>
-			<Row>
-				<RepositoriesTable repositories={repositories} />
+				{repositories && <RepositoriesTable repositories={repositories} />}
 			</Row>
 		</div>
 	);
 };
 
-export default memo(UserDetails);
+export default memo(withAuth(UserDetails));

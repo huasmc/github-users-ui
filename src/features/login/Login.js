@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Button, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { UI_STRINGS } from "../../common/UI_STRINGS.js";
@@ -23,10 +23,15 @@ const Login = () => {
 
 	const submitLogin = () => {
 		if (user.username.length >= 8 && user.password.length >= 8) {
-			localStorage.setItem("token", user);
+			localStorage.setItem("user", user.username);
 			navigate("/dashboard");
 		}
 	};
+
+	useEffect(() => {
+		const user = localStorage.getItem("user");
+		if (user) navigate("/dashboard");
+	}, [navigate]);
 
 	return (
 		<div className="login-container center">

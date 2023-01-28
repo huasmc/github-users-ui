@@ -1,4 +1,5 @@
 import { memo } from "react";
+import withAuth from "../../auth/WithAuth";
 import UserTable from "./components/UserTable";
 
 const Dashboard = () => {
@@ -9,4 +10,4 @@ const Dashboard = () => {
 	);
 };
 
-export default memo(Dashboard);
+export default memo(withAuth(Dashboard));

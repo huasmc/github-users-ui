@@ -43,15 +43,16 @@ const UserMetadata = ({ selectedUser }) => {
 					<Col xs={2}>
 						<hr></hr>
 						<Col>
-							<b>{UI_STRINGS.USER_DETAILS.FOLLOWERS}</b>
-							{metadata.followers}
+							<b>{UI_STRINGS.USER_DETAILS.FOLLOWERS}: </b>
+							{metadata.followers.toLocaleString()}
 						</Col>
 						<Col>
-							<b>{UI_STRINGS.USER_DETAILS.FOLLOWING}</b> {metadata.following}
+							<b>{UI_STRINGS.USER_DETAILS.FOLLOWING}: </b>{" "}
+							{metadata.following.toLocaleString()}
 						</Col>
 						<Col>
-							<b>{UI_STRINGS.USER_DETAILS.GISTS} </b>
-							{metadata.public_gists}
+							<b>{UI_STRINGS.USER_DETAILS.GISTS}: </b>
+							{metadata.public_gists.toLocaleString()}
 						</Col>
 					</Col>
 				</Row>

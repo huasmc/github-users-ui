@@ -36,9 +36,9 @@ const appSlice = createSlice({
 	name: "app",
 	initialState: {
 		users: [],
-		selectedUser: {},
-		repositories: {},
-		selectedUserData: {},
+		selectedUser: null,
+		repositories: null,
+		selectedUserData: null,
 	},
 	reducers: {
 		setSelectedUser: (state, action) => {
