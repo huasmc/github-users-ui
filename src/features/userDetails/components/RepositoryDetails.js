@@ -37,7 +37,7 @@ const RepositoryDetails = ({ show, onHide, repository }) => {
 					</Row>
 					<Row>
 						<Col xs={12}>
-							<a href={repository.html_url} target="_blank">
+							<a href={repository.html_url} target="_blank" rel="noreferrer">
 								{UI_STRINGS.REPOSITORY_DETAILS.ON_GITHUB}
 							</a>
 						</Col>

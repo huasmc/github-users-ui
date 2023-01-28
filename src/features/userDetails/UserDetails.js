@@ -18,11 +18,11 @@ const UserDetails = () => {
 
 	useEffect(() => {
 		dispatch(fetchRepositories(selectedUser.repos_url));
-	}, []);
+	}, [dispatch]);
 
 	useEffect(() => {
 		if (!selectedUser.login) navigate("/dashboard");
-	}, []);
+	}, [navigate, selectedUser]);
 
 	return (
 		<div style={{ padding: "80px" }}>

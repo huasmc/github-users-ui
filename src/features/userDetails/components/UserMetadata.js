@@ -10,7 +10,7 @@ const UserMetadata = ({ selectedUser }) => {
 
 	useEffect(() => {
 		dispatch(fetchUserData(selectedUser.url));
-	}, [selectedUser]);
+	}, [selectedUser, dispatch]);
 
 	return (
 		<Container style={{ margin: "20px 0 20px 0" }}>

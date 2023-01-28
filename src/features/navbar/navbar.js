@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from "react";
-import { Col, Nav, span, Row } from "react-bootstrap";
+import { Col, Nav, Row } from "react-bootstrap";
 import githubLogo from "../../assets/github.png";
 import { useNavigate } from "react-router-dom";
 
