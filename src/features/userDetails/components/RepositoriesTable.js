@@ -40,7 +40,7 @@ const RepositoriesTable = ({ repositories }) => {
 									</td>
 									<td>
 										<span>{repository.size}</span>
-									</td>{" "}
+									</td>
 									<td>
 										<span>{repository.watchers}</span>
 									</td>

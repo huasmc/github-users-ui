@@ -3,7 +3,7 @@ import UserTable from "./components/UserTable";
 
 const Dashboard = () => {
 	return (
-		<div style={{ padding: "80px" }}>
+		<div className="routes-container">
 			<UserTable />
 		</div>
 	);

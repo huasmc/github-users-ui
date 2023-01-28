@@ -23,7 +23,7 @@ const Login = () => {
 
 	const submitLogin = () => {
 		if (user.username.length >= 8 && user.password.length >= 8) {
-			// localStorage.setItem("token", user);
+			localStorage.setItem("token", user);
 			navigate("/dashboard");
 		}
 	};
@@ -37,8 +37,8 @@ const Login = () => {
 				<Row>
 					<InputGroup className="mb-3">
 						<Form.Control
-							placeholder="Username"
-							aria-label="Username"
+							placeholder="E-mail"
+							aria-label="E-mail"
 							aria-describedby="basic-addon1"
 							onChange={onUsernameChange}
 						/>

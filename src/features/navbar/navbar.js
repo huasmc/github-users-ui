@@ -26,7 +26,7 @@ const Navbar = () => {
 					<span className="link">Dashboard</span>
 				</Col>
 				<Col xs={8} />
-				<Col xs={2}>
+				<Col xs={2} onClick={() => navigateTo("/")}>
 					<span className="link">{user ? user.username : "Log-out"}</span>
 				</Col>
 			</Nav>

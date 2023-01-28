@@ -12,7 +12,9 @@ const RepositoryDetails = ({ show, onHide, repository }) => {
 		>
 			<Modal.Header closeButton>
 				<Modal.Title id="contained-modal-title-vcenter">
-					Using Grid in Modal
+					<h2>
+						<b>{repository.name}</b>
+					</h2>
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body className="show-grid">

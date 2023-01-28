@@ -25,7 +25,7 @@ const UserDetails = () => {
 	}, [navigate, selectedUser]);
 
 	return (
-		<div style={{ padding: "80px" }}>
+		<div className="routes-container">
 			<Row>
 				<UserMetadata selectedUser={selectedUser} />
 			</Row>

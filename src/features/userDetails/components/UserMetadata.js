@@ -15,11 +15,18 @@ const UserMetadata = ({ selectedUser }) => {
 	return (
 		<Container style={{ margin: "20px 0 20px 0" }}>
 			{metadata && (
-				<Row>
-					<Col xs={1}>
+				<Row style={{ background: "white", borderRadius: "15px" }}>
+					<Col xs={2}>
 						<img alt="" className="avatar-lg" src={metadata.avatar_url} />
 					</Col>
-					<Col xs={2}>
+					<Col
+						xs={2}
+						style={{
+							background: "white",
+							borderRadius: "15px",
+							marginRight: "10px",
+						}}
+					>
 						<hr></hr>
 						<Row>
 							<span>
