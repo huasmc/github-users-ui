@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from "react";
-import { Col, Nav, Row } from "react-bootstrap";
+import { Col, NavLink, Row } from "react-bootstrap";
 
 const Navbar = () => {
 	const [user, setUser] = useState("");
@@ -8,17 +8,18 @@ const Navbar = () => {
 		const user = localStorage.getItem("token");
 		setUser(user);
 	}, []);
+
 	return (
 		<Row style={{ borderBottom: "2px solid black", paddingBottom: "10px" }}>
 			<Col xs={1}>
-				<span className="link">Logo</span>
+				<NavLink className="link">Logo</NavLink>
 			</Col>
 			<Col xs={1}>
-				<span className="link">Inicio</span>
+				<NavLink className="link">Dashboard</NavLink>
 			</Col>
 			<Col xs={8} />
 			<Col xs={2}>
-				<span className="link">{user ? user.username : "Log-out"}</span>
+				<NavLink className="link">{user ? user.username : "Log-out"}</NavLink>
 			</Col>
 		</Row>
 	);

@@ -4,4 +4,9 @@ export const UI_STRINGS = {
 		AVATAR: "Avatar",
 		USERNAME: "Username",
 	},
+	REPOSITORIES: {
+		NAME: "Name",
+		SIZE: "Size",
+		WATCHERS: "Watchers",
+	},
 };

@@ -3,12 +3,14 @@ import { Form, Pagination } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { UI_STRINGS } from "../../../common/UI_STRINGS";
-import { fetchUsers, selectUsers } from "../../../AppSlice";
+import { fetchUsers, selectUsers, setSelectedUser } from "../../../AppSlice";
+import { useNavigate } from "react-router-dom";
 
 function UserTable() {
 	const [activePage, setActivePage] = useState(1);
 	const [perPage, setPerPage] = useState(25);
 	const users = useSelector(selectUsers);
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -24,9 +26,14 @@ function UserTable() {
 		setPerPage(value);
 	};
 
+	const seeUserDetails = (user) => {
+		dispatch(setSelectedUser(user));
+		navigate("/user-details");
+	};
+
 	return (
 		<>
-			<div className="users-table">
+			<div className="table-container">
 				<Table striped bordered hover responsive size="sm">
 					<thead>
 						<tr>
@@ -43,7 +50,9 @@ function UserTable() {
 											<img src={user.avatar_url} className="avatar" alt="" />
 										</td>
 										<td>
-											<span>{user.login}</span>
+											<span onClick={() => seeUserDetails(user)}>
+												{user.login}
+											</span>
 										</td>
 									</tr>
 								);

@@ -37,7 +37,7 @@ code {
 	width: 10vw;
 }
 
-.users-table {
+.table-container {
 	height: 55vh;
 	overflow-y: scroll;
 }
