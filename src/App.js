@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./features/login/Login";
 import React from "react";
 import "./App.css";
@@ -6,7 +6,11 @@ import "./App.css";
 function App() {
 	return (
 		<div className="App">
-			<Login />
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Login />} />
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
 }
