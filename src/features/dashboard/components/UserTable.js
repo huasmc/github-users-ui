@@ -45,14 +45,12 @@ function UserTable() {
 						{Array.isArray(users) &&
 							users.map((user) => {
 								return (
-									<tr key={user.login}>
+									<tr key={user.login} onClick={() => seeUserDetails(user)}>
 										<td>
 											<img src={user.avatar_url} className="avatar" alt="" />
 										</td>
 										<td>
-											<span onClick={() => seeUserDetails(user)}>
-												{user.login}
-											</span>
+											<span>{user.login}</span>
 										</td>
 									</tr>
 								);
