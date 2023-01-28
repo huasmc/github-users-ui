@@ -27,7 +27,7 @@ function UserTable() {
 	return (
 		<>
 			<div className="users-table">
-				<Table striped bordered hover responsive>
+				<Table striped bordered hover responsive size="sm">
 					<thead>
 						<tr>
 							<th>{UI_STRINGS.USERS_TABLE.AVATAR}</th>

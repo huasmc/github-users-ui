@@ -6,7 +6,9 @@ const Dashboard = () => {
 	return (
 		<>
 			<Row>
-				<UserTable />
+				<div style={{ padding: "80px" }}>
+					<UserTable />
+				</div>
 			</Row>
 		</>
 	);
