@@ -9,4 +9,9 @@ export const UI_STRINGS = {
 		SIZE: "Size",
 		WATCHERS: "Watchers",
 	},
+	USER_DETAILS: {
+		FOLLOWING: "Following",
+		FOLLOWERS: "Followers",
+		GISTS: "Gists",
+	},
 };

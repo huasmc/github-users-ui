@@ -1,26 +1,35 @@
 import { memo, useEffect, useState } from "react";
-import { Col, NavLink, Row } from "react-bootstrap";
+import { Col, Nav, span, Row } from "react-bootstrap";
+import githubLogo from "../../assets/github.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 	const [user, setUser] = useState("");
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const user = localStorage.getItem("token");
 		setUser(user);
 	}, []);
 
+	const navigateTo = (path) => navigate(path);
+
 	return (
 		<Row style={{ borderBottom: "2px solid black", paddingBottom: "10px" }}>
-			<Col xs={1}>
-				<NavLink className="link">Logo</NavLink>
-			</Col>
-			<Col xs={1}>
-				<NavLink className="link">Dashboard</NavLink>
-			</Col>
-			<Col xs={8} />
-			<Col xs={2}>
-				<NavLink className="link">{user ? user.username : "Log-out"}</NavLink>
-			</Col>
+			<Nav>
+				<Col xs={1} onClick={() => navigateTo("/dashboard")}>
+					<span className="link">
+						<img alt="" src={githubLogo} className="avatar" />
+					</span>
+				</Col>
+				<Col xs={1} onClick={() => navigateTo("/dashboard")}>
+					<span className="link">Dashboard</span>
+				</Col>
+				<Col xs={8} />
+				<Col xs={2}>
+					<span className="link">{user ? user.username : "Log-out"}</span>
+				</Col>
+			</Nav>
 		</Row>
 	);
 };

@@ -10,10 +10,10 @@ import { Row } from "react-bootstrap";
 function App() {
 	return (
 		<div className="App">
-			<Row>
-				<Navbar />
-			</Row>
 			<BrowserRouter>
+				<Row>
+					<Navbar />
+				</Row>
 				<Routes>
 					<Route path="/" element={<Login />} />
 					<Route path="/dashboard" element={<Dashboard />} />
