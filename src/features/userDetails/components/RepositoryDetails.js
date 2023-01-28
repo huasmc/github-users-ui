@@ -3,7 +3,6 @@ import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { UI_STRINGS } from "../../../common/UI_STRINGS";
 
 const RepositoryDetails = ({ show, onHide, repository }) => {
-	console.log(repository);
 	return (
 		<Modal
 			show={show}
