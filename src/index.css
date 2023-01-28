@@ -27,3 +27,17 @@ code {
 	background-color: aqua;
 	padding: 1%;
 }
+
+.avatar {
+	height: 75px;
+	border-radius: 45px;
+}
+
+.pagination-select {
+	width: 10vw;
+}
+
+.users-table {
+	height: 55vh;
+	overflow-y: scroll;
+}
