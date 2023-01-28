@@ -9,16 +9,16 @@ const Navbar = () => {
 		setUser(user);
 	}, []);
 	return (
-		<Row>
+		<Row style={{ borderBottom: "2px solid black", paddingBottom: "10px" }}>
 			<Col xs={1}>
 				<span className="link">Logo</span>
 			</Col>
 			<Col xs={1}>
-				<span className="link">Boton de Inicio</span>
+				<span className="link">Inicio</span>
 			</Col>
 			<Col xs={8} />
 			<Col xs={2}>
-				<span className="link">{user && user.username}</span>
+				<span className="link">{user ? user.username : "Log-out"}</span>
 			</Col>
 		</Row>
 	);

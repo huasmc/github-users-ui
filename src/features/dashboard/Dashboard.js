@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Row } from "react-bootstrap";
-import Navbar from "../navbar/navbar";
+import Navbar from "../navbar/Navbar";
 import UserTable from "./components/UserTable";
 
 const Dashboard = () => {
