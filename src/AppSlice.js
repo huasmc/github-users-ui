@@ -64,6 +64,7 @@ const appSlice = createSlice({
 export const { setSelectedUser } = appSlice.actions;
 export const selectUsers = (state) => state.app.users;
 export const selectSelectedUser = (state) => state.app.selectedUser;
+export const selectUserMetadata = (state) => state.app.selectedUserData;
 export const selectRepositories = (state) => state.app.repositories;
 
 export default appSlice.reducer;

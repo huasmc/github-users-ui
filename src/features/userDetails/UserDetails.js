@@ -7,6 +7,8 @@ import {
 } from "../../AppSlice";
 import { useNavigate } from "react-router-dom";
 import RepositoriesTable from "./components/RepositoriesTable";
+import { Row } from "react-bootstrap";
+import UserMetadata from "./components/UserMetadata";
 
 const UserDetails = () => {
 	const selectedUser = useSelector(selectSelectedUser);
@@ -16,7 +18,6 @@ const UserDetails = () => {
 
 	useEffect(() => {
 		dispatch(fetchRepositories(selectedUser.repos_url));
-		dispatch(fetchUserData(selectedUser.url));
 	}, []);
 
 	useEffect(() => {
@@ -25,7 +26,12 @@ const UserDetails = () => {
 
 	return (
 		<div style={{ padding: "80px" }}>
-			<RepositoriesTable repositories={repositories} />{" "}
+			<Row>
+				<UserMetadata selectedUser={selectedUser} />
+			</Row>
+			<Row>
+				<RepositoriesTable repositories={repositories} />
+			</Row>
 		</div>
 	);
 };

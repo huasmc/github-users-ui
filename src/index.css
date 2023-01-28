@@ -33,6 +33,11 @@ code {
 	border-radius: 45px;
 }
 
+.avatar-lg {
+	height: 125px;
+	border-radius: 45px;
+}
+
 .pagination-select {
 	width: 10vw;
 }

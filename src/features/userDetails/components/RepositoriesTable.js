@@ -5,6 +5,9 @@ import { UI_STRINGS } from "../../../common/UI_STRINGS";
 const RepositoriesTable = ({ repositories }) => {
 	return (
 		<div className="table-container">
+			<h4>
+				<b>Repositories</b>
+			</h4>
 			<Table striped bordered hover responsive size="sm">
 				<thead>
 					<tr>
