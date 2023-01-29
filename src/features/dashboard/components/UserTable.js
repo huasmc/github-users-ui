@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { UI_STRINGS } from "../../../common/UI_STRINGS";
 import {
 	fetchUsers,
+	searchUser,
 	selectUsers,
 	setSelectedUser,
 	setUsers,
@@ -30,16 +31,7 @@ function UserTable() {
 	}, [activePage, perPage, searchQuery, dispatch]);
 
 	useEffect(() => {
-		if (searchQuery) {
-			fetch(`https://api.github.com/search/users?q=${searchQuery}`)
-				.then((response) => response.json())
-				.then((data) => {
-					if (data.items) dispatch(setUsers(data.items));
-				})
-				.catch((error) => {
-					throw new Error(error);
-				});
-		}
+		if (searchQuery) dispatch(searchUser(searchQuery));
 	}, [searchQuery]);
 
 	const onPageChange = (page) => setActivePage(page);
