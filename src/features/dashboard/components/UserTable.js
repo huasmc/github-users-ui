@@ -1,21 +1,38 @@
 import { memo, useEffect, useState } from "react";
-import { Form, Pagination } from "react-bootstrap";
+import { Form, InputGroup, Pagination } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { UI_STRINGS } from "../../../common/UI_STRINGS";
-import { fetchUsers, selectUsers, setSelectedUser } from "../../../AppSlice";
+import {
+	fetchUsers,
+	searchUser,
+	selectUsers,
+	setSelectedUser,
+	setUsers,
+} from "../../../AppSlice";
 import { useNavigate } from "react-router-dom";
+import { debounce } from "../../../service/debounce";
 
 function UserTable() {
+	const [searchQuery, setSearchQuery] = useState(null);
 	const [activePage, setActivePage] = useState(1);
 	const [perPage, setPerPage] = useState(25);
 	const users = useSelector(selectUsers);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
+	const handleSearchChange = debounce((event) => {
+		setSearchQuery(event.target.value);
+	});
+
 	useEffect(() => {
-		dispatch(fetchUsers({ since: activePage, per_page: perPage }));
-	}, [activePage, perPage, dispatch]);
+		if (!searchQuery)
+			dispatch(fetchUsers({ since: activePage, per_page: perPage }));
+	}, [activePage, perPage, searchQuery, dispatch]);
+
+	useEffect(() => {
+		if (searchQuery) dispatch(searchUser(searchQuery));
+	}, [searchQuery]);
 
 	const onPageChange = (page) => setActivePage(page);
 
@@ -33,6 +50,14 @@ function UserTable() {
 
 	return (
 		<>
+			<InputGroup className="mb-3">
+				<Form.Control
+					placeholder="Search Github User"
+					aria-label="Search Github User"
+					aria-describedby="basic-addon1"
+					onChange={handleSearchChange}
+				/>
+			</InputGroup>
 			<div className="table-container">
 				<Table striped bordered hover responsive size="sm">
 					<thead>
@@ -49,8 +74,8 @@ function UserTable() {
 										<td>
 											<img src={user.avatar_url} className="avatar" alt="" />
 										</td>
-										<td>
-											<span>{user.login}</span>
+										<td style={{ width: "90%" }}>
+											<span style={{ color: "#0d6efd" }}>{user.login}</span>
 										</td>
 									</tr>
 								);

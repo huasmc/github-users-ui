@@ -30,6 +30,7 @@ code {
 .avatar {
 	height: 45px;
 	border-radius: 45px;
+	width: 45px;
 }
 
 .avatar-lg {

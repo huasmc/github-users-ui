@@ -1,3 +1,34 @@
+# Requirements
+
+- [x] React
+- [x] Login
+- - [x] E-mail
+- - [x] Password (8 characters)
+- [x] Navigation
+- - [x] Logo
+- - [x] Home Link
+- - [x] User E-mail/Log-out
+- [x] Fetch users from Github REST API
+- [x] Users Table
+- - [x] Avatar
+- - [x] Username
+- [x] Filter
+- - [x] Table 25, 50, 100 per page
+- - [x] Pagination
+- [x] User details view
+- - [x] Name, Email, Bio, URL
+- - [x] Repositories, followers, following
+- [x] Repository details
+- - [x] Name
+- - [x] Description
+- - [x] Language
+- - [x] Link to Github
+- [x] Github repository
+- [x] Difficulties:
+  - Bootstrap ellipsis pagination.
+
+Github
+
 # Getting Started with Create React App and Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.

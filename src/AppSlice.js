@@ -32,6 +32,15 @@ export const fetchUserData = createAsyncThunk("user", async (url) => {
 	}
 });
 
+export const searchUser = createAsyncThunk("search", async (searchQuery) => {
+	try {
+		const response = await get(ENDPOINTS.SEARCH_USER + searchQuery);
+		return response;
+	} catch (error) {
+		throw new Error(error);
+	}
+});
+
 const appSlice = createSlice({
 	name: "app",
 	initialState: {
@@ -43,6 +52,9 @@ const appSlice = createSlice({
 	reducers: {
 		setSelectedUser: (state, action) => {
 			state.selectedUser = action.payload;
+		},
+		setUsers: (state, action) => {
+			state.users = action.payload;
 		},
 	},
 	extraReducers: (builder) => {
@@ -58,10 +70,14 @@ const appSlice = createSlice({
 			const { payload } = action;
 			state.selectedUserData = payload;
 		});
+		builder.addCase(searchUser.fulfilled, (state, action) => {
+			const { payload } = action;
+			state.users = payload.items;
+		});
 	},
 });
 
-export const { setSelectedUser } = appSlice.actions;
+export const { setSelectedUser, setUsers } = appSlice.actions;
 export const selectUsers = (state) => state.app.users;
 export const selectSelectedUser = (state) => state.app.selectedUser;
 export const selectUserMetadata = (state) => state.app.selectedUserData;
