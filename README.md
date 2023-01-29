@@ -29,42 +29,43 @@
   - Bootstrap ellipsis pagination:
     Solution: Call the API to get user count, calculate the number of pages (per_page/user_count) and programmatically implement pagination ellipsis with Bootstrap.
 
-        ```
-        const PAGE_WINDOW = 5; // number of pages to display at a time
+```
+const PAGE_WINDOW = 5; // number of pages to display at a time
 
-    const PaginationWithEllipsis = ({ activePage, onPageChange }) => {
-    const pages = Array.from({ length: 50 }, (\_, index) => index + 1);
+const PaginationWithEllipsis = ({ activePage, onPageChange }) => {
+const pages = Array.from({ length: 50 }, (\_, index) => index + 1);
 
-  const start = Math.max(0, activePage - PAGE_WINDOW / 2);
-  const end = Math.min(pages.length, start + PAGE_WINDOW);
+const start = Math.max(0, activePage - PAGE_WINDOW / 2);
+const end = Math.min(pages.length, start + PAGE_WINDOW);
 
-  return (
-  <Pagination size="sm" style={{ margin: "15px" }}>
-  {start > 0 && (
-  <>
-  <Pagination.Item onClick={() => onPageChange(1)}>1</Pagination.Item>
-  <Pagination.Ellipsis />
-  </>
-  )}
-  {pages.slice(start, end).map((page, index) => (
-  <Pagination.Item
-  key={index + 1}
-  active={activePage === page}
-  onClick={() => onPageChange(page)} >
-  {page}
-  </Pagination.Item>
-  ))}
-  {end < pages.length && (
-  <>
-  <Pagination.Ellipsis />
-  <Pagination.Item onClick={() => onPageChange(pages.length)}>
-  {pages.length}
-  </Pagination.Item>
-  </>
-  )}
-  </Pagination>
-  );
-  };```
+return (
+<Pagination size="sm" style={{ margin: "15px" }}>
+{start > 0 && (
+<>
+<Pagination.Item onClick={() => onPageChange(1)}>1</Pagination.Item>
+<Pagination.Ellipsis />
+</>
+)}
+{pages.slice(start, end).map((page, index) => (
+<Pagination.Item
+key={index + 1}
+active={activePage === page}
+onClick={() => onPageChange(page)} >
+{page}
+</Pagination.Item>
+))}
+{end < pages.length && (
+<>
+<Pagination.Ellipsis />
+<Pagination.Item onClick={() => onPageChange(pages.length)}>
+{pages.length}
+</Pagination.Item>
+</>
+)}
+</Pagination>
+);
+};
+```
 
 Github
 
