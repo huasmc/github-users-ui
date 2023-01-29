@@ -16,15 +16,14 @@ const UserMetadata = ({ selectedUser }) => {
 		<Container style={{ margin: "20px 0 20px 0" }}>
 			{metadata && (
 				<Row style={{ background: "white", borderRadius: "15px" }}>
-					<Col xs={2}>
+					<Col xs={3}>
 						<img alt="" className="avatar-lg" src={metadata.avatar_url} />
 					</Col>
 					<Col
-						xs={2}
+						xs={4}
 						style={{
 							background: "white",
 							borderRadius: "15px",
-							marginRight: "10px",
 						}}
 					>
 						<hr></hr>
@@ -40,7 +39,7 @@ const UserMetadata = ({ selectedUser }) => {
 							<a href={metadata.blog}>{metadata.blog}</a>
 						</Row>
 					</Col>
-					<Col xs={2}>
+					<Col xs={5}>
 						<hr></hr>
 						<Col>
 							<b>{UI_STRINGS.USER_DETAILS.FOLLOWERS}: </b>
