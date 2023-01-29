@@ -23,7 +23,8 @@ code {
 
 .login-container {
 	box-shadow: 10px 10px #001;
-	width: 25vw;
+	min-width: 283px;
+	width: 27%;
 	background-color: rgb(221, 221, 221);
 	padding: 1%;
 }
