@@ -8,7 +8,6 @@ import {
 	searchUser,
 	selectUsers,
 	setSelectedUser,
-	setUsers,
 } from "../../../AppSlice";
 import { useNavigate } from "react-router-dom";
 import { debounce } from "../../../service/debounce";
