@@ -39,7 +39,7 @@ const Navbar = () => {
 	return (
 		<Row style={{ borderBottom: "2px solid black", paddingBottom: "10px" }}>
 			<Nav>
-				<Col xs={1} onClick={() => navigateTo("/dashboard")}>
+				<Col xs={2} onClick={() => navigateTo("/dashboard")}>
 					<span className="link">
 						<img alt="" src={GithubLogo} className="avatar" />
 					</span>
@@ -49,8 +49,8 @@ const Navbar = () => {
 						<Col xs={1} onClick={() => navigateTo("/dashboard")}>
 							<span className="link">Dashboard</span>
 						</Col>
-						<Col xs={8} />
-						<Col xs={2} onClick={displayTooltip} ref={target}>
+						<Col xs={6} />
+						<Col xs={3} onClick={displayTooltip} ref={target}>
 							<span className="link">{user ? user : "Log-out"}</span>
 						</Col>
 					</>
