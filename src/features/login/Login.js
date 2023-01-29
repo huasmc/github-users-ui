@@ -5,6 +5,7 @@ import { UI_STRINGS } from "../../common/UI_STRINGS.js";
 
 const Login = () => {
 	const [user, setUser] = useState({ username: "", password: "" });
+	const [validation, setValidation] = useState(false);
 	const navigate = useNavigate();
 
 	const onUsernameChange = (event) => {
@@ -22,10 +23,10 @@ const Login = () => {
 	};
 
 	const submitLogin = () => {
-		if (user.username.length >= 8 && user.password.length >= 8) {
+		if (user.username.length >= 4 && user.password.length >= 8) {
 			localStorage.setItem("user", user.username);
 			navigate("/dashboard");
-		}
+		} else setValidation(true);
 	};
 
 	useEffect(() => {
@@ -64,6 +65,9 @@ const Login = () => {
 						{UI_STRINGS.LOGIN}
 					</Button>
 				</Row>
+				{validation && (
+					<span style={{ color: "red" }}>{UI_STRINGS.VALIDATION}</span>
+				)}
 			</Container>
 		</div>
 	);

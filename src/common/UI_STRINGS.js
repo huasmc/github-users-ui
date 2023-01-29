@@ -22,4 +22,5 @@ export const UI_STRINGS = {
 		FOLLOWERS: "Followers",
 		GISTS: "Gists",
 	},
+	VALIDATION: "Password should have 8 characters",
 };
