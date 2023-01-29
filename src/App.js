@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import Dashboard from "./features/dashboard/Dashboard";
 import Login from "./features/login/Login";
 import React from "react";
@@ -10,7 +10,7 @@ import { Row } from "react-bootstrap";
 function App() {
 	return (
 		<div className="App">
-			<BrowserRouter>
+			<HashRouter>
 				<Row>
 					<Navbar />
 				</Row>
@@ -19,7 +19,7 @@ function App() {
 					<Route path="/dashboard" element={<Dashboard />} />
 					<Route path="/user-details" element={<UserDetails />} />
 				</Routes>
-			</BrowserRouter>
+			</HashRouter>
 		</div>
 	);
 }
