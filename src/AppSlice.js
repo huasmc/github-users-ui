@@ -44,6 +44,9 @@ const appSlice = createSlice({
 		setSelectedUser: (state, action) => {
 			state.selectedUser = action.payload;
 		},
+		setUsers: (state, action) => {
+			state.users = action.payload;
+		},
 	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchUsers.fulfilled, (state, action) => {
@@ -61,7 +64,7 @@ const appSlice = createSlice({
 	},
 });
 
-export const { setSelectedUser } = appSlice.actions;
+export const { setSelectedUser, setUsers } = appSlice.actions;
 export const selectUsers = (state) => state.app.users;
 export const selectSelectedUser = (state) => state.app.selectedUser;
 export const selectUserMetadata = (state) => state.app.selectedUserData;
