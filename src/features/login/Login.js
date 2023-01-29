@@ -3,10 +3,10 @@ import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { UI_STRINGS } from "../../common/UI_STRINGS.js";
 import GithubLogo from "../../assets/github.png";
+import { validateEmail } from "../../utils/validateEmail.js";
 
 const Login = () => {
 	const [user, setUser] = useState({ username: "", password: "" });
-	const [validation, setValidation] = useState(false);
 	const navigate = useNavigate();
 
 	const onUsernameChange = (event) => {
@@ -23,11 +23,12 @@ const Login = () => {
 		setUser({ ...user, password: value });
 	};
 
-	const submitLogin = () => {
-		if (user.username.length >= 4 && user.password.length >= 8) {
+	const submitLogin = (event) => {
+		event.preventDefault();
+		if (validateEmail(user.username) && user.password.length >= 8) {
 			localStorage.setItem("user", user.username);
 			navigate("/dashboard");
-		} else setValidation(true);
+		}
 	};
 
 	useEffect(() => {
@@ -45,34 +46,43 @@ const Login = () => {
 					</Col>
 					<Col xs={4} />
 				</Row>
-				<Row>
-					<InputGroup className="mb-3">
-						<Form.Control
-							placeholder="E-mail"
-							aria-label="E-mail"
-							aria-describedby="basic-addon1"
-							onChange={onUsernameChange}
-						/>
-					</InputGroup>
-				</Row>
-				<Row>
-					<InputGroup className="mb-3">
-						<Form.Control
-							placeholder="Password"
-							aria-label="Password"
-							aria-describedby="basic-addon1"
-							onChange={onPasswordChange}
-						/>
-					</InputGroup>
-				</Row>
-				<Row>
-					<Button className="button" onClick={submitLogin}>
-						{UI_STRINGS.LOGIN}
-					</Button>
-				</Row>
-				{validation && (
-					<span style={{ color: "red" }}>{UI_STRINGS.VALIDATION}</span>
-				)}
+				<Form noValidate onSubmit={submitLogin}>
+					<Row>
+						<InputGroup className="mb-3" hasValidation>
+							<Form.Control
+								placeholder="E-mail"
+								aria-label="E-mail"
+								aria-describedby="basic-addon1"
+								onChange={onUsernameChange}
+								isInvalid={
+									user.username.length > 2 && !validateEmail(user.username)
+								}
+								isValid={validateEmail(user.username)}
+							/>
+							<Form.Control.Feedback type="valid" />
+						</InputGroup>
+					</Row>
+					<Row>
+						<InputGroup className="mb-3" hasValidation>
+							<Form.Control
+								placeholder="Password"
+								aria-label="Password"
+								aria-describedby="basic-addon1"
+								onChange={onPasswordChange}
+								type="password"
+								isInvalid={user.password.length > 2 && user.password.length < 8}
+								isValid={user.password.length >= 8}
+							/>
+							<Form.Control.Feedback type="valid" />
+							<Form.Control.Feedback type="invalid" />
+						</InputGroup>
+					</Row>
+					<Row>
+						<Button className="button" type="submit">
+							{UI_STRINGS.LOGIN}
+						</Button>
+					</Row>
+				</Form>
 			</Container>
 		</div>
 	);
