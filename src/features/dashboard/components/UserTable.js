@@ -25,8 +25,8 @@ function UserTable() {
 	});
 
 	useEffect(() => {
-		if (!searchQuery)
-			dispatch(fetchUsers({ since: activePage, per_page: perPage }));
+		const since = activePage === 1 ? activePage : users[users.length - 1].id;
+		if (!searchQuery) dispatch(fetchUsers({ since: since, per_page: perPage }));
 	}, [activePage, perPage, searchQuery, dispatch]);
 
 	useEffect(() => {
