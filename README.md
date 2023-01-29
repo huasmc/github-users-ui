@@ -25,7 +25,8 @@
 - - [x] Link to Github
 - [x] Github repository
 - [x] Difficulties:
-  - Bootstrap ellipsis pagination.
+  - Bootstrap ellipsis pagination:
+    Solution: Call the API to get user count, calculate the number of pages (per_page/user_count) and programmatically implement pagination ellipsis with Bootstrap.
 
 Github
 
