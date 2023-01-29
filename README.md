@@ -1,5 +1,7 @@
 # Requirements
 
+The application can be seen live [here](https://huasmc.github.io/github-users-ui/).
+
 - [x] React
 - [x] Login
 - - [x] E-mail
