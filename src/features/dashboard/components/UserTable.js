@@ -74,7 +74,7 @@ function UserTable() {
 										<td>
 											<img src={user.avatar_url} className="avatar" alt="" />
 										</td>
-										<td>
+										<td style={{ width: "90%" }}>
 											<span>{user.login}</span>
 										</td>
 									</tr>
