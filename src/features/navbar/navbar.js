@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef, useState } from "react";
 import { Col, Nav, Overlay, Row } from "react-bootstrap";
-import githubLogo from "../../assets/github.png";
+import GithubLogo from "../../assets/github.png";
 import { useNavigate } from "react-router-dom";
 import { UI_STRINGS } from "../../common/UI_STRINGS";
 import LogoutIcon from "../../assets/logout.png";
@@ -41,17 +41,19 @@ const Navbar = () => {
 			<Nav>
 				<Col xs={1} onClick={() => navigateTo("/dashboard")}>
 					<span className="link">
-						<img alt="" src={githubLogo} className="avatar" />
+						<img alt="" src={GithubLogo} className="avatar" />
 					</span>
 				</Col>
-				<Col xs={1} onClick={() => navigateTo("/dashboard")}>
-					<span className="link">Dashboard</span>
-				</Col>
-				<Col xs={8} />
 				{user && (
-					<Col xs={2} onClick={displayTooltip} ref={target}>
-						<span className="link">{user ? user : "Log-out"}</span>
-					</Col>
+					<>
+						<Col xs={1} onClick={() => navigateTo("/dashboard")}>
+							<span className="link">Dashboard</span>
+						</Col>
+						<Col xs={8} />
+						<Col xs={2} onClick={displayTooltip} ref={target}>
+							<span className="link">{user ? user : "Log-out"}</span>
+						</Col>
+					</>
 				)}
 				<Overlay target={target.current} show={showTooltip} placement="bottom">
 					{({ placement, arrowProps, show: _show, popper, ...props }) => (

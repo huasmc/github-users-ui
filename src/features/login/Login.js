@@ -1,7 +1,8 @@
 import { memo, useEffect, useState } from "react";
-import { Button, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { UI_STRINGS } from "../../common/UI_STRINGS.js";
+import GithubLogo from "../../assets/github.png";
 
 const Login = () => {
 	const [user, setUser] = useState({ username: "", password: "" });
@@ -38,7 +39,11 @@ const Login = () => {
 		<div className="login-container center">
 			<Container>
 				<Row>
-					<h5>{UI_STRINGS.LOGIN}</h5>
+					<Col xs={4} />
+					<Col xs={4} style={{ margin: "5px" }}>
+						<img alt="" src={GithubLogo} className="avatar" />
+					</Col>
+					<Col xs={4} />
 				</Row>
 				<Row>
 					<InputGroup className="mb-3">
